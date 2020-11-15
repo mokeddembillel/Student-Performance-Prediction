@@ -85,6 +85,26 @@ X = X[['school', 'sex', 'age', 'address', 'famsize', 'Pstatus', 'Medu', 'Fedu',
        'freetime', 'goout', 'Dalc', 'Walc', 'health', 'absences', 'G1', 'G2']]
 
 
+# Dimentionality Reduction
+variance_vector = X.var()
+
+correlation_matrix = X.corr()
+
+# Drop some variables due to high correlation between them and other variables
+
+    # Fedu and Medu => according to this article (https://www.theguardian.com
+    # /society/2014/sep/23/fathers-education-child-success-school) 
+    # father's education is more important for children than mother's 
+    # so i chose to delete Medu
+    
+    # Walc and Dalc => i chose to drop Walc because driking in workday has more impact
+    # than weekend
+    
+    # G1 and G2 => and of course i droped  first semester's grades because
+    # the second semester is more close the the third semester, 
+    # thus it could be more impactful
+
+X.drop(['Medu', 'Walc', 'G1'],axis='columns', inplace=True)
 
 
 
