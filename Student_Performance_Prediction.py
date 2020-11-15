@@ -43,6 +43,49 @@ y = dataset.iloc[:, 32]
 
 
 
+# Encoding Categorical Data
+labelEncoder_X = LabelEncoder()
+
+variables_to_labelEncode = [0, 1, 3, 4, 5, 8, 9 ,10 , 11, 15, 16, 17, 18, 19, 20, 21, 22]
+
+for i in variables_to_encode:
+    X.iloc[:, i] = labelEncoder_X.fit_transform(X.iloc[:, i])
+
+# One Hot Encoding
+oneHotEncoder_X = OneHotEncoder(sparse = False)
+
+X['Mjob_at_home'] = oneHotEncoder_X.fit_transform(X[['Mjob']])[:, 0]
+X['Mjob_health'] = oneHotEncoder_X.fit_transform(X[['Mjob']])[:, 1]
+X['Mjob_other'] = oneHotEncoder_X.fit_transform(X[['Mjob']])[:, 2]
+X['Mjob_services'] = oneHotEncoder_X.fit_transform(X[['Mjob']])[:, 3]
+
+X['Fjob_at_home'] = oneHotEncoder_X.fit_transform(X[['Fjob']])[:, 0]
+X['Fjob_health'] = oneHotEncoder_X.fit_transform(X[['Fjob']])[:, 1]
+X['Fjob_other'] = oneHotEncoder_X.fit_transform(X[['Fjob']])[:, 2]
+X['Fjob_services'] = oneHotEncoder_X.fit_transform(X[['Fjob']])[:, 3]
+
+X['reason_course'] = oneHotEncoder_X.fit_transform(X[['reason']])[:, 0]
+X['reason_other'] = oneHotEncoder_X.fit_transform(X[['reason']])[:, 1]
+X['reason_home'] = oneHotEncoder_X.fit_transform(X[['reason']])[:, 2]
+
+X['guardian_father'] = oneHotEncoder_X.fit_transform(X[['guardian']])[:, 0]
+X['guardian_mother'] = oneHotEncoder_X.fit_transform(X[['guardian']])[:, 1]
+
+# Drop old columns
+X.drop(['Mjob', 'Fjob', 'reason', 'guardian'],axis='columns', inplace=True)
+
+# Reorder columns
+X = X[['school', 'sex', 'age', 'address', 'famsize', 'Pstatus', 'Medu', 'Fedu', 
+      'Mjob_at_home', 'Mjob_health', 'Mjob_other', 'Mjob_services',
+      'Fjob_at_home', 'Fjob_health', 'Fjob_other', 'Fjob_services',
+      'reason_course', 'reason_other', 'reason_home', 'guardian_father',
+       'guardian_mother','traveltime', 'studytime', 'failures', 'schoolsup', 
+       'famsup', 'paid',
+       'activities', 'nursery', 'higher', 'internet', 'romantic', 'famrel',
+       'freetime', 'goout', 'Dalc', 'Walc', 'health', 'absences', 'G1', 'G2']]
+
+
+
 
 
 
