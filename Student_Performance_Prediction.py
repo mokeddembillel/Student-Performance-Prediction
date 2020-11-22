@@ -1,7 +1,7 @@
 # Importing Libraries
 import numpy as np 
 import pandas as pd 
-import matplotlib as plt
+import matplotlib.pyplot as plt
 from sklearn.preprocessing import LabelEncoder, OneHotEncoder
 
 # Importing The Dataset
@@ -48,7 +48,7 @@ labelEncoder_X = LabelEncoder()
 
 variables_to_labelEncode = [0, 1, 3, 4, 5, 8, 9 ,10 , 11, 15, 16, 17, 18, 19, 20, 21, 22]
 
-for i in variables_to_encode:
+for i in variables_to_labelEncode:
     X.iloc[:, i] = labelEncoder_X.fit_transform(X.iloc[:, i])
 
 # One Hot Encoding
@@ -109,6 +109,27 @@ X.drop(['Medu', 'Walc', 'G1'],axis='columns', inplace=True)
 
 
 
+# Using Random Forest Feature importance to get select the most important features
+from sklearn.ensemble import RandomForestRegressor
+model = RandomForestRegressor(random_state=1, max_depth=10)
+
+model.fit(X,y)
+
+features = X.columns
+importances = model.feature_importances_
+indices = np.argsort(importances)[-1:-12:-1]
+
+plt.title('Feature Importances')
+plt.barh(range(len(indices)), importances[indices], color='b', align='center')
+plt.yticks(range(len(indices)), [features[i] for i in indices])
+plt.xlabel('Relative Importance')
+plt.show()
+
+X = X.iloc[:, indices]
+
+#from sklearn.feature_selection import SelectFromModel
+#feature = SelectFromModel(model)
+#Fit = feature.fit_transform(X, y)
 
 
 
