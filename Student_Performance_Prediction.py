@@ -35,7 +35,7 @@ y = dataset.iloc[:, 32]
 #    -for students with very low consumption rate (from  1 to 5, 1 is the best)
 #    -for students whom are the most healthy
 #    ### Most of these variables we stated above has a similar impact on the grades 
-#    ### so we will try to do some dimentionality reduction
+#    ### so we will try to do some dimensionality reduction
 # -Best Grades in average are of males and students who are 20 years old 
 # -males are 187 (47.34%) and females are 208 (52.66%)
 # -the quality of family relationships doesn't have a straight impact or a big impact on grades, i will further check later
@@ -85,7 +85,7 @@ X = X[['school', 'sex', 'age', 'address', 'famsize', 'Pstatus', 'Medu', 'Fedu',
        'freetime', 'goout', 'Dalc', 'Walc', 'health', 'absences', 'G1', 'G2']]
 
 
-# Dimentionality Reduction
+# Dimensionality Reduction
 variance_vector = X.var()
 
 correlation_matrix = X.corr()
@@ -130,6 +130,35 @@ X = X.iloc[:, indices]
 #from sklearn.feature_selection import SelectFromModel
 #feature = SelectFromModel(model)
 #Fit = feature.fit_transform(X, y)
+
+# Splitting the data to train and test
+from sklearn.model_selection import train_test_split
+
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
