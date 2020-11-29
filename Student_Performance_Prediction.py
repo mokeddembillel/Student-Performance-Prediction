@@ -201,7 +201,29 @@ rmse = mean_squared_error(y_test, y_pred, squared=False)
 
 
 
+############################## CONCLUSIONS ###################################
 
+# - well after analysing the obtained results we can conclude that the SVR outperform 
+# the linear regression model when fitting a large number of features, 
+# maybe that's because SVR works better in larger datasets or maybe just 
+# because including some features which seemed unimportant gives a 
+# non-linearity advantage to the SVR over the LR model. but the LR model for sure outperform 
+# the SVR when fitting a small number of features because maybe at some point this problem
+# becomes simple enough so that it doesn't need a non-linear model or it could be just 
+# because SVR works better 
+
+# - Another important point to mentione is that dimentionaality reduction comes at a cost, 
+# reducing the nnumber of features or even extracting new features with PCA reduces the 
+# prediction accuracy. well and of course i don't think that we can generalise this to every problem
+# and dataset
+
+
+plt.plot(range(len(y_pred)), y_pred, color = 'red')
+plt.plot(range(len(y_test)), y_test, color = 'blue')
+plt.title('Predicted G3 VS Real G3')
+plt.xlabel('Students')
+plt.ylabel('Grades')
+plt.show()
 
 
 
