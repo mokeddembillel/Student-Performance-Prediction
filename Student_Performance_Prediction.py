@@ -136,6 +136,16 @@ from sklearn.model_selection import train_test_split
 
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
 
+from sklearn.preprocessing import StandardScaler
+
+X_scaler = StandardScaler()
+X_train = X_scaler.fit_transform(X_train)
+X_test = X_scaler.transform(X_test)
+
+y_scaler = StandardScaler()
+y_train = np.array(y_train).reshape(-1, 1)
+y_train = y_scaler.fit_transform(y_train)
+
 
 
 
