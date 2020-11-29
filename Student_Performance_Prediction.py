@@ -147,6 +147,25 @@ y_train = np.array(y_train).reshape(-1, 1)
 y_train = y_scaler.fit_transform(y_train)
 
 
+# Using Principal Component Analysis to extract the most important features
+
+from sklearn.decomposition import PCA
+
+pca = PCA(n_components=21)
+
+X_train = pca.fit_transform(X_train)
+X_test = pca.transform(X_test)
+
+plt.bar(range(len(pca.explained_variance_ratio_)), pca.explained_variance_ratio_)
+plt.bar(range(len(pca.explained_variance_ratio_)), np.cumsum(pca.explained_variance_ratio_))
+
+#from sklearn.decomposition import TruncatedSVD 
+#svd = TruncatedSVD(n_components=4)
+#svd_result = svd.fit_transform(X.values)
+#plt.bar(range(4), svd.explained_variance_ratio_)
+
+
+
 
 
 
