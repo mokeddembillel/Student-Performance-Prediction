@@ -176,6 +176,12 @@ y_pred = y_scaler.inverse_transform(y_pred)
 from sklearn.metrics import mean_squared_error
 rmse = mean_squared_error(y_test, y_pred, squared=False)
 
+#### with PCA (21 most important components): RMSE = 2.8945364384836916
+#### with PCA (All components): RMSE = 2.4168045073395628
+#### without dimensionality reduction technique: RMSE = 2.7208641723700726
+#### with 11 features  and : RMSE = 2.1022008340843232
+#### (feature selection based on multicollinearity and random forest feature importance)
+
 # Using a Simple linear regression
 
 from sklearn.linear_model import LinearRegression
@@ -185,6 +191,15 @@ y_pred = lr.predict(X_test)
 y_pred = y_scaler.inverse_transform(y_pred)
 
 rmse = mean_squared_error(y_test, y_pred, squared=False)
+
+#### with PCA (21 most important components): RMSE = 2.7150229671546686
+#### with PCA (All components): RMSE = 1.955979283731477
+#### without dimensionality reduction technique: RMSE = 1.969876872388883
+#### with 11 features  and : RMSE = 1.989072849694719
+#### (feature selection based on multicollinearity and random forest feature importance)
+
+
+
 
 
 
