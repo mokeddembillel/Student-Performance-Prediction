@@ -176,6 +176,15 @@ y_pred = y_scaler.inverse_transform(y_pred)
 from sklearn.metrics import mean_squared_error
 rmse = mean_squared_error(y_test, y_pred, squared=False)
 
+# Using a Simple linear regression
+
+from sklearn.linear_model import LinearRegression
+lr = LinearRegression()
+lr.fit(X_train, y_train)
+y_pred = lr.predict(X_test)
+y_pred = y_scaler.inverse_transform(y_pred)
+
+rmse = mean_squared_error(y_test, y_pred, squared=False)
 
 
 
