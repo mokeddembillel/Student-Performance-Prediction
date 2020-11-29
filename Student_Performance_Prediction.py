@@ -165,6 +165,17 @@ plt.bar(range(len(pca.explained_variance_ratio_)), np.cumsum(pca.explained_varia
 #plt.bar(range(4), svd.explained_variance_ratio_)
 
 
+# Train a Support Vector Regression (WITH RBF Kernel) model on the preprocessed data
+
+from sklearn import svm
+svr = svm.SVR()
+svr.fit(X_train, y_train)
+y_pred = svr.predict(X_test)
+y_pred = y_scaler.inverse_transform(y_pred)
+
+from sklearn.metrics import mean_squared_error
+rmse = mean_squared_error(y_test, y_pred, squared=False)
+
 
 
 
