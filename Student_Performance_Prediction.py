@@ -109,7 +109,7 @@ X.drop(['Medu', 'Walc', 'G1'],axis='columns', inplace=True)
 
 
 
-# Using Random Forest Feature importance to get select the most important features
+# Using Random Forest Feature importance to select the most important features
 from sklearn.ensemble import RandomForestRegressor
 model = RandomForestRegressor(random_state=1, max_depth=10)
 
