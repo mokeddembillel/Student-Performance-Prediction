@@ -18,20 +18,20 @@ y = dataset.iloc[:, 32]
 #    -for family size "LE3" - less or equal to 3, 
 #    -for parent's cohabitation status of "A" - apart, 
 #    -for students who has fathers  work as teacher and mothers work in health, 
-#    -for students whom choose their schools because of reputation and other reasons
-#    -for students whom their gardian is their father 
+#    -for students who choose their schools because of reputation and other reasons
+#    -for students whom their guardian is their father 
 #    -for students whom their home to school travel time is 1 - <15 min.
-#    -for students whom study the most 
+#    -for students who study the most 
 #    -for students whom have no extra educational support
 #    -for students whom have no family educational support
 #    -for students whom have extra paid classes within the course subject
-#    -for students whom do extra-curricular activities 
-#    -for students whom attended nursery school
-#    -for students whom wants higher education
+#    -for students who do extra-curricular activities 
+#    -for students who attended nursery school
+#    -for students who wants higher education
 #    -for students whom have internet access
 #    -for students with a romantic relationship
 #    -for students whom have a free time after school of (from  1 to 5, 2 and 5 are the best)
-#    -for students whom go out with friends a little bit (from  1 to 5, 2 is the best)
+#    -for students who go out with friends a little bit (from  1 to 5, 2 is the best)
 #    -for students with very low consumption rate (from  1 to 5, 1 is the best)
 #    -for students whom are the most healthy
 #    ### Most of these variables we stated above has a similar impact on the grades 
@@ -39,7 +39,7 @@ y = dataset.iloc[:, 32]
 # -Best Grades in average are of males and students who are 20 years old 
 # -males are 187 (47.34%) and females are 208 (52.66%)
 # -the quality of family relationships doesn't have a straight impact or a big impact on grades, i will further check later
-# -the number of absenses doesn't show w straight impact on the grades 
+# -the number of absences doesn't show w straight impact on the grades 
 
 
 
@@ -97,10 +97,10 @@ correlation_matrix = X.corr()
     # father's education is more important for children than mother's 
     # so i chose to delete Medu
     
-    # Walc and Dalc => i chose to drop Walc because driking in workday has more impact
-    # than weekend
+    # Walc and Dalc => i chose to drop Walc because drinking in workday has more impact
+    # than week end
     
-    # G1 and G2 => and of course i droped  first semester's grades because
+    # G1 and G2 => and of course i dropped  first semester's grades because
     # the second semester is more close the the third semester, 
     # thus it could be more impactful
 
@@ -212,8 +212,8 @@ rmse = mean_squared_error(y_test, y_pred, squared=False)
 # becomes simple enough so that it doesn't need a non-linear model or it could be just 
 # because SVR works better 
 
-# - Another important point to mentione is that dimentionaality reduction comes at a cost, 
-# reducing the nnumber of features or even extracting new features with PCA reduces the 
+# - Another important point to mention is that dimensionality reduction comes at a cost, 
+# reducing the number of features or even extracting new features with PCA reduces the 
 # prediction accuracy. well and of course i don't think that we can generalise this to every problem
 # and dataset
 
@@ -224,46 +224,6 @@ plt.title('Predicted G3 VS Real G3')
 plt.xlabel('Students')
 plt.ylabel('Grades')
 plt.show()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
